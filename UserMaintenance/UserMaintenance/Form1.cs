@@ -15,7 +15,8 @@ namespace UserMaintenance
     public partial class Form1 : Form
     {
         BindingList<User> users = new BindingList<User>();
-
+      
+       
 
         public Form1()
         {
@@ -26,6 +27,8 @@ namespace UserMaintenance
             button1.Text = Resource1.Add; // button1
 
             button2.Text = Resource1.SaveFileDialog;
+           
+            button3.Text = Resource1.Delete;
 
             
             
@@ -72,9 +75,26 @@ namespace UserMaintenance
                 }
             }
 
+        }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
 
+            if (listBox1.SelectedItem == null) return;
 
+            var törlendő = (User)listBox1.SelectedItem;
+            users.Remove(törlendő);
+
+          /*  try
+            {
+               //SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }*/
+           
         }
     }
 }
